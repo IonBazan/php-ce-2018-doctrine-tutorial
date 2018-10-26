@@ -1,0 +1,10 @@
+version: '2'
+
+options:
+  compose-file-path: 'docker-compose.yml'
+  compose-dev-file-path: 'docker-compose.dockersync.yml'
+
+syncs:
+  ddd_workshop_app:
+    src: '../'
+    sync_excludes: ['var/run', 'var/tmp', '.git', '.k8s', 'docker-local', '.dockerignore', '.env.dist', '.gitlab-ci.yml', '.gitignore', '.idea', 'docker-entrypoint.sh']

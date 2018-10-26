@@ -9,3 +9,15 @@
 // 5. save the user
 
 // Tip: discuss - email or saving? Chicken-egg problem
+
+require_once '../vendor/autoload.php';
+
+use Authentication\CommandHandler\RegistrationHandler;
+use Authentication\Command\RegisterCommand;
+
+try {
+    $registerCommand = new RegisterCommand($_POST['emailAddress'], $_POST['password']);
+    RegistrationHandler::register($registerCommand);
+} catch (Exception $e) {
+    die(sprintf('<span style="color:red;">An error occurred: %s</span>', $e->getMessage()));
+}

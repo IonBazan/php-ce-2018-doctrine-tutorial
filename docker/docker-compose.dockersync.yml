@@ -1,0 +1,9 @@
+version: '2.1'
+services:
+  php:
+    volumes:
+      - ddd_workshop_app:/var/www/app:nocopy
+
+volumes:
+  ddd_workshop_app:
+    external: true
