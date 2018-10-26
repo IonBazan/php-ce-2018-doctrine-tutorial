@@ -2,17 +2,20 @@
 
 namespace Authentication\Entity;
 
+use Authentication\Value\EmailAddress;
+use Authentication\Value\PasswordHash;
+
 class User
 {
-    /** @var string */
+    /** @var EmailAddress */
     public $emailAddress;
 
-    /** @var string */
+    /** @var PasswordHash */
     public $passwordHash;
 
-    public function __construct(string $emailAddress, string $password)
+    public function __construct(EmailAddress $emailAddress, PasswordHash $password)
     {
         $this->emailAddress = $emailAddress;
-        $this->passwordHash = password_hash($password, \PASSWORD_DEFAULT);
+        $this->passwordHash = $password;
     }
 }
